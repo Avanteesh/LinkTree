@@ -1,0 +1,79 @@
+*,*::before,*::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+body {
+  background-color: #2c2f36;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.container {
+  font-family: monospace;
+  display: grid;
+  place-items: center;
+  background-color: white;
+  padding: 50px;
+  box-shadow: 0px 0px 10px 0.1px #fff;
+  border-radius: 4px;
+  max-width: 53%;
+  margin: 11vh;
+  font-size: clamp(0.2em, 1.5em,3em);
+}
+.login-signup-form h2 {
+  user-select: none;
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  width:100%;
+}
+.login-signup-form div {
+  width: 100%;
+}
+.login-signup-form div p {
+  user-select: none;
+  text-align: center;
+  font-size: 0.7em;
+  padding: 5px;
+}
+.login-signup-form div label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+  user-select: none;
+}
+.login-signup-form div input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #333;
+}
+
+.login-signup-form div input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.login-signup-form .submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-signup-form .submit-button:hover {
+  background-color: #0056b3;
+}
+
+
+

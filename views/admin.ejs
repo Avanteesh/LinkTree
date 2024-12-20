@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Link Tree Admin</title>
+  <link rel="stylesheets" href="/stylesheets/main.css">
+</head>
+<body style="background:#d4f3ff;">
+  <main class="body-content">
+    <div class="side-navbar-wrapper">
+      <!--link-tree adin page--->
+      <div class="navbar-attribute" id="profile-view">
+        <img class="profile-picture" src="<%= data.profile_picture %>"/>
+      </div>
+      <div class="navbar-attribute" id="navigators">
+        <img src="/pictures/gear.svg" class="navigators"/>
+      </div>
+    </div>
+    <div class="page-content">
+      <div class="links-for-link-tree">
+        <div id="link-init" class="add-new-link-btn-wrapper">
+          <button>add new link</button>
+        </div>
+        <div id="link-init" class="link-containers">
+          <article class="Alone-link">
+            <div class="title-container">
+              <h3>
+                <b>link name</b>
+              </h3>
+              <div>
+                <kbd>edit</kbd>
+              </div>
+            </div>
+            <div class="url-unit">
+              <h4>https://www.CurrUrl</h4>
+              <div>
+                <kbd>edit</kbd>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="link-tree-preview">
+        <div>
+          <p>link is here!<p>
+        </div>
+        <div class="mobile-layout-view"></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Create Profile</title>
+  <link rel="stylesheet" href="/stylesheets/page.css">
+</head>
+<body>
+  <main class="body-content">
+    <div class="user-bio-form">
+      <form method="post" action="/create-profile/<%= Id %>">
+        <h2>configure profile</h2>
+        <div class="user-profile-input">
+          <div>
+            <img class="avatars" id="current-profile-picture"/>
+            <button class="add-profile-picture">+</button>
+          </div>
+          <div>
+            <img src="/pictures/avatar_boy.jpg" class="avatars"/>
+          </div>
+          <div>
+            <img src="/pictures/boy.png" class="avatars"/>
+          </div>
+          <div>
+            <img src="/pictures/women_avatar.png" class="avatars"/>
+          </div>
+          <div>
+            <img src="/pictures/man.png" class="avatars"/>
+          </div>
+        </div>
+        <div class="username-input">
+          <label for="username">username</label>
+          <input class="username-input" maxlength="18"  name="username" placeholder="enter username..." required/>
+        </div>
+        <div class="user-bio-input">
+          <label for="enter bio">enter bio</label>
+          <textarea name="bio" maxlength="600" style="resize: none;" placeholder="write something..."></textarea>
+          <input class="profile-pic-hidden" type="text" name="profile-picture" 
+          style="height:0;width:0;cursor:default;opacity:0;" required/>
+        </div>
+        <input type="submit" value="create"/>
+      </form>
+    </div>
+  </main>
+  <script type="text/javascript">
+    const profileInput = document.querySelector(".profile-pic-hidden");
+    const profile_imagebox = document.querySelector(".add-profile-picture");
+    const displayedProfile = document.querySelector("#current-profile-picture");
+    const avatars = document.querySelectorAll(".avatars");
+
+    profile_imagebox.addEventListener("click", function(e) {
+      const input = document.createElement("input");
+      input.type = "file";
+      input.accept = "*.png,jpeg";
+      input.addEventListener("change", function(e) {
+        const reader = new FileReader();
+        const files = Array.from(this.files).at(0);
+        reader.addEventListener("load", function(e) {
+          profileInput.value = reader.result
+          displayedProfile.src = reader.result;
+        }, false);
+        if (files) 
+          reader.readAsDataURL(files);
+      });
+      input.click();
+      input.remove();
+    });
+
+    avatars.forEach(function(avatar) {
+      avatar.addEventListener("click", function() {
+        displayedProfile.src = this.src;
+        fetch(this.src).then((res) => {
+          return res.blob();
+        }).then((blob) => {
+          return Array.from(blob.bytes());
+        }).then((buffer) => {
+          let bufferString = buffer.map(String.fromCharCode).join("")
+          profileInput.value = bufferString;
+        })
+      });
+    });
+  </script>
+</body>
+</html>
